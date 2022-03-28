@@ -7,6 +7,30 @@ Trackgenix SA is a Software Development company that provides services to other 
 With Trackgenix's web page you can have access to information about how the enterprise works, what it dedicates to, etc. Also, the page is one of the channels to get in contact with the Trackgenix Team.
 For users inside of the company, they have access to their profiles, roles, tasks, and other utilities.
 
+## Functionalities
+
+* Sign up and Log in to your user account
+* Various Roles with different skills
+* Reports
+* Tasks
+* Projects
+* Rates
+* Record of Hours
+* Resource Management
+* Contact with the company
+
+## Objective
+
+Trackgenix's target is to provide assistance to other companies with an efficient software development service.
+This project's objective is to ease the access for clients, employees, and other users.
+
+## Content
+
+In this repository you will find:
+
+* An HTML index file with the structure of the layout
+* An 'img' folder that contains all of the images used in the page
+
 ## Contact
 
 If you want to know more about this project, you can get in contact via e-mail: alcober.cristian@outlook.com
@@ -14,5 +38,3 @@ If you want to know more about this project, you can get in contact via e-mail: 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-

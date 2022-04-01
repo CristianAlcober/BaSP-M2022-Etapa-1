@@ -1,0 +1,55 @@
+header {
+    width: 100%;
+    background-color: #AACE9B;
+    padding: 0%;
+    margin: 0%;
+}
+
+h1 {
+    width: 100%;
+    text-align: right;
+    font: bold 86px, Roboto, Arial;
+    color: #373867;
+    background-color: #AACE9B;
+}
+
+.subtitle {
+    width: 100%;
+    text-align: right;
+    font: bold 27px, Roboto, Arial;
+    color: #373867;
+    background-color: #AACE9B;
+}
+
+body {
+    background-color: white;
+}
+
+.history {
+    text-align: center;
+    width: 80%;
+    
+}
+
+.block {
+    background-color: white;
+    float: left;
+    width: 33.3%;
+}
+
+aside {
+    float: left;
+    background-color: #373867;
+    
+}
+
+footer {
+    width: 100%;
+    background-color: #AACE9B;
+}
+
+.foot-text {
+    text-align: center;
+    font: bold 18px, Roboto, Arial;
+
+}

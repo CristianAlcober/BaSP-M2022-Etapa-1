@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+
 header {
     width: 100%;
     background-color: #AACE9B;
@@ -5,10 +7,57 @@ header {
     margin: 0%;
 }
 
-h1 {
+aside {
+    float: left;
+    background-color: #373867;
+    width: 15%;
+    height: 100%;
+}
+
+.welcome {
+    margin: 20px;
+    padding: 50px;
+}
+
+.welcome-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 72px;
+    font-style: bold;
+    color: #373867;
     width: 100%;
+    margin: 10px;
+    
+}
+
+.welcome-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    color: #373867;
+    width: 50%;
+    text-align: center;
+    margin: 10px;
+}
+
+.first-img {
+    width: 50%;
+}
+
+.welcome-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 36px;
+    font-style: bold;
+    color: #373867;
+    width: 100%;
+    margin: 10px;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 86px;
+    font-style: bold;
     text-align: right;
-    font: bold 86px, Roboto, Arial;
+    width: 100%;
     color: #373867;
     background-color: #AACE9B;
 }
@@ -16,8 +65,8 @@ h1 {
 .subtitle {
     width: 100%;
     text-align: right;
-    font: bold 27px, Roboto, Arial;
-    color: #373867;
+    font: bold 27px, 'Roboto', sans-serif;
+    color: #69A362;
     background-color: #AACE9B;
 }
 
@@ -37,11 +86,6 @@ body {
     width: 33.3%;
 }
 
-aside {
-    float: left;
-    background-color: #373867;
-    
-}
 
 footer {
     width: 100%;

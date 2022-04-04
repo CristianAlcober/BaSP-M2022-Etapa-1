@@ -10,6 +10,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+/*HEADER */
 header {
     position: fixed;
     top: 0px;
@@ -20,6 +21,7 @@ header {
     z-index: 99;
 }
 
+/* SIDEBAR */
 aside {
     position: fixed;
     top: 122px;
@@ -30,12 +32,19 @@ aside {
     z-index: 80;
 }
 
+.aside-line {
+    position: relative;
+    top: 32px;
+    width: 90%;
+    border-bottom: 2px solid #69A362;
+}
+
 .aside-bt {
     display: block;
     position: relative;
-    top: 55px;
+    top: 32px;
     width: 162px;
-    margin: 35px auto;
+    margin: 30px auto;
     padding: 10px 5px;
     background-color: #AACE9B;
     border-radius: 8px;
@@ -45,27 +54,52 @@ aside {
     text-decoration: none;
 }
 
+.aside-bt a {
+    text-decoration: none;
+    color: #373867;
+}
 .aside-contact {
     position: relative;
-    top: 100px;
-    padding: 0 20px;
+    padding: 0 15px;
     color: #fff;
+    top: 25px;
 }
 
-.aside-line {
+.aside-h3 {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px;
+}
+
+.aside-p1 {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.aside-p {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.aside-icons {
     position: relative;
-    top: 60px;
-    width: 90%;
-    border-bottom: 2px solid #69A362;
+    width: 24px;
+    display: inline-block;
+    left: 80px;
 }
 
+/* MAIN */
 main {
     position: relative;
     top: 122px;
-    left: 270px;
+    left: 290px;
     width: 100%;
 }
 
+/* Welcome Section */
 h1 {
     position: absolute;
     font-size: 86px;
@@ -127,6 +161,7 @@ h1 {
     height: auto;
 }
 
+/* Features Section */
 .features {
     position: relative;
     top: 550px;
@@ -167,11 +202,13 @@ h1 {
     display: inline-block;
     width: 255px;
     text-align: center;
+    color: #373867;
     font-size: 14px;
     line-height: 20px;
     z-index: 60;
 }
 
+/* Attributes Section */
 .attributes {
     position: relative;
     top: 750px;
@@ -197,9 +234,14 @@ h1 {
     text-transform: uppercase;
 }
 
+.attribute-text {
+    color: #373867;
+}
+
+/* Information Section */
 .info {
     position: relative;
-    top: 1000px;
+    top: 950px;
 }
 
 .info-title {
@@ -271,13 +313,13 @@ textarea {
     cursor: pointer;
 }
 
+/* History Section */
 .history {
     position: relative;
     top: 1100px;
     text-align: center;
     width: 80%;
     color: #373867;
-    
 }
 
 .history-title {
@@ -303,6 +345,7 @@ textarea {
     font-size: 18px;
 }
 
+/* Items Section */
 .block {
     position: relative;
     top: 1200px;
@@ -332,10 +375,15 @@ textarea {
     color: #373867;
 }
 
+.block a {
+    text-decoration: none;
+}
+
+/* FOOTER */
 footer {
     position: absolute;
-    top: 6100px;
-    width: 1462px;
+    top: 5100px;
+    width: 1600px;
     height: 153px;
     background-color: #AACE9B;
 }

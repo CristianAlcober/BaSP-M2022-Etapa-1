@@ -24,12 +24,18 @@ For users inside of the company, they have access to their profiles, roles, task
 Trackgenix's target is to provide assistance to other companies with an efficient software development service.
 This project's objective is to ease the access for clients, employees, and other users.
 
+## Progress
+
+* Semana-02 : We've worked to design the html structure for the landing page.
+* Semana-03 : Added the stylesheet for the landing page.
+
 ## Content
 
 In this repository you will find:
 
 * An HTML index file with the structure of the layout
 * An 'img' folder that contains all of the images used in the page
+* An 'css' folder that contains the stylesheets needed for the page
 
 ## Contact
 

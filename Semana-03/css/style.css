@@ -30,14 +30,39 @@ aside {
     z-index: 80;
 }
 
-nav {
-    
+.aside-bt {
+    display: block;
+    position: relative;
+    top: 55px;
+    width: 162px;
+    margin: 35px auto;
+    padding: 10px 5px;
+    background-color: #AACE9B;
+    border-radius: 8px;
+    font-size: 20px;
+    color:#373867;
+    text-align: center;
+    text-decoration: none;
+}
+
+.aside-contact {
+    position: relative;
+    top: 100px;
+    padding: 0 20px;
+    color: #fff;
+}
+
+.aside-line {
+    position: relative;
+    top: 60px;
+    width: 90%;
+    border-bottom: 2px solid #69A362;
 }
 
 main {
     position: relative;
     top: 122px;
-    left: 263px;
+    left: 270px;
     width: 100%;
 }
 
@@ -97,7 +122,7 @@ h1 {
 .first-img {
     position: absolute;
     top: 180px;
-    right: 100px;
+    right: 50px;
     width: 680px;
     height: auto;
 }
@@ -126,6 +151,7 @@ h1 {
     height: auto;
     opacity: 60%;
     float: left;
+    z-index: 50;
 }
 
 .features-h4 {
@@ -134,6 +160,7 @@ h1 {
     font-size: 27px;
     text-transform: uppercase;
     color: #373867;
+    z-index: 60;
 }
 
 .features-p {
@@ -142,6 +169,7 @@ h1 {
     text-align: center;
     font-size: 14px;
     line-height: 20px;
+    z-index: 60;
 }
 
 .attributes {
@@ -151,7 +179,6 @@ h1 {
 }
 
 .attribute-box {
-    display: inline-table;
     padding: 40px 60px 60px 60px;
     margin: 0 96px 50px 0;
     width: 290px;
@@ -160,6 +187,7 @@ h1 {
     font-weight: bold;
     font-size: 18px;
     text-align: center;
+    display: inline-table;
 }
 
 .attributes-h4 {
@@ -201,6 +229,16 @@ form {
     left: 258px;
 }
 
+.info-i {
+    position: relative;
+    display: inline;
+    margin-left: 125px;
+    width: 32px;
+    height: 32px;
+    background-color: #37386766;
+    cursor: pointer;
+}
+
 input {
     margin: 15px 0 50px 0;
     padding: 15px 10px;
@@ -222,7 +260,6 @@ textarea {
 .info-submit {
     display: block;
     position: absolute;
-    left: 75%;
     padding: 8px 15px;
     border-style: none;
     border: 2px solid #373867;
@@ -234,16 +271,36 @@ textarea {
     cursor: pointer;
 }
 
-
-
-
-
 .history {
     position: relative;
     top: 1100px;
     text-align: center;
     width: 80%;
+    color: #373867;
     
+}
+
+.history-title {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-size: 64px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.history-p1 {
+    margin-bottom: 60px;
+    margin-left: 5%;
+    width: 90%;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.history-p2 {
+    width: 60%;
+    margin: 0 0 50px 20%;
+    font-size: 18px;
 }
 
 .block {
@@ -253,10 +310,31 @@ textarea {
     text-align: center;
 }
 
+.block-column {
+    display: inline-block;
+    width: 20%;
+    padding: 0 5%;
+    text-align: justify; 
+}
+
+.block-title {
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 36px;
+    color:#AACE9B;
+    text-transform: uppercase;
+}
+
+.block li {
+    line-height: 20px;
+    list-style-type: disc;
+    font-weight: bold;
+    color: #373867;
+}
 
 footer {
     position: absolute;
-    top: 5000px;
+    top: 6100px;
     width: 1462px;
     height: 153px;
     background-color: #AACE9B;

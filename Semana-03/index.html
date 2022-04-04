@@ -21,48 +21,49 @@
         </header>
         <aside>
             <nav>
-                <h3>
+                <div class="aside-line"></div>
+                <h3 class="aside-bt">
                     <a href="#">
                         Home
                     </a>
                 </h3>
-                <h3>
+                <h3 class="aside-bt">
                     <a href="#">
                         Sign Up
                     </a>
                 </h3>
-                <h3>
+                <h3 class="aside-bt">
                     <a href="#">
                         Log In
                     </a>
                 </h3>
-                <h3>
-                    Contact
-                </h3>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat 
-                    quidem quaerat iusto vitae suscipit necessitatibus modi dolore pariatur 
-                    soluta beatae quis aspernatur inventore, veniam doloremque ea consequuntur 
-                    voluptatibus aliquid. At.
-                </p>
-                <p>
-                    email-icon
-                </p>
-                <p>
-                    information@untitled.tld
-                </p>
-                <p>
-                    phone-icon
-                </p>
-                <p>
-                    (000)000-0000
-                </p>
-                <p>
-                    home-icon
-                </p>
-                <p>
-                    1234 Somewhere Road #8254 Nashville, TN 00000-0000
-                </p>
+                <div class="aside-line"></div>
+                <div class="aside-contact">
+                    <h3>
+                        Contact
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    </p>
+                    <p>
+                        email-icon
+                    </p>
+                    <p>
+                        information@untitled.tld
+                    </p>
+                    <p>
+                        phone-icon
+                    </p>
+                    <p>
+                        (000)000-0000
+                    </p>
+                    <p>
+                        home-icon
+                    </p>
+                    <p>
+                        1234 Somewhere Road #8254 Nashville, TN 00000-0000
+                    </p>
+                </div>
             </nav>
         </aside>
         <main>
@@ -179,26 +180,30 @@
                         </legend>
                         <label for="full-name">
                             NAME & LAST NAME
-                        </label>            
-                        <input type="text" id="full-name" name="full-name" placeholder="Christian Alcober">  
+                        </label> 
+                        <div>      
+                            <input type="text" id="full-name" name="full-name" placeholder="Christian Alcober">  
+                        </div>     
                         <label for="email">
-                            E-MAIL
+                            EMAIL
                         </label>
-                        <input type="email" id="email" name="email" placeholder="this-is-my@email.com">
+                        <div>
+                            <input type="email" id="email" name="email" placeholder="this-is-my@email.com">
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend class="info-contact">
                             Contact
                         </legend>
-                        <input type="radio" id="human-resources" name="contact" value="human resources">
+                        <input type="radio" id="human-resources" name="contact" value="human resources" class="info-i">
                         <label for="human-resources" class="info-c-type">
                             Human Resources
                         </label>
-                        <input type="radio" id="systems" name="contact" value="systems">
+                        <input type="radio" id="systems" name="contact" value="systems" class="info-i">
                         <label for="systems" class="info-c-type">
                             Systems
                         </label>
-                        <input type="radio" id="comercialization" name="contact" value="comercialization">
+                        <input type="radio" id="comercialization" name="contact" value="comercialization" class="info-i">
                         <label for="comercialization" class="info-c-type">
                             Comercialization
                         </label>
@@ -212,13 +217,15 @@
                 </form>
             </section>
             <section class="history">
-                <h3>Our History</h3>
-                <p>
+                <h3 class="history-title">
+                    Our History
+                </h3>
+                <p class="history-p1">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit quas magni iusto. Ullam, 
                     ipsam ipsa, deleniti impedit sint in nisi unde quibusdam eveniet quia quidem aliquam, 
                     est alias quod possimus.
                 </p>
-                <p>
+                <p class="history-p2">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque nesciunt quaerat nobis
                     doloremque consectetur reprehenderit expedita delectus odio nulla, quae eaque, accusamus
                     culpa consequatur sapiente eveniet sed. Laudantium, expedita. Lorem ipsum, dolor sit amet
@@ -226,7 +233,7 @@
                     consectetur fugiat velit mollitia quae ex maiores, perferendis ea natus minus
                     ipsam. Saepe neque animi sit!
                 </p>
-                <p>
+                <p class="history-p2">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque nesciunt quaerat nobis
                     doloremque consectetur reprehenderit expedita delectus odio nulla, quae eaque, accusamus
                     culpa consequatur sapiente eveniet sed. Laudantium, expedita. Lorem ipsum, dolor sit amet
@@ -234,7 +241,7 @@
                     consectetur fugiat velit mollitia quae ex maiores, perferendis ea natus minus
                     ipsam. Saepe neque animi sit!
                 </p>
-                <p>
+                <p class="history-p2">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque nesciunt quaerat nobis
                     doloremque consectetur reprehenderit expedita delectus odio nulla, quae eaque, accusamus
                     culpa consequatur sapiente eveniet sed. Laudantium, expedita. Lorem ipsum, dolor sit amet
@@ -244,81 +251,87 @@
                 </p>
             </section>
             <section class="block">
-                <h4>
-                    Products
-                </h4>
-                <ul>
-                    <li>
-                        <a href="#">
-                            Functionalities
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Downloads
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Integrations
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Extras
-                        </a>
-                    </li>
-                </ul>
-                <h4>
-                    Company
-                </h4>
-                <ul>
-                    <li>
-                        <a href="#">
-                            About us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Clients
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Resources
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Blog
-                        </a>
-                    </li>
-                </ul>
-                <h4>
-                    Support
-                </h4>
-                <ul>
-                    <li>
-                        <a href="#">
-                            Help
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Tutorials
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            API
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
+                <div class="block-column">
+                    <h4 class="block-title">
+                        Products
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Functionalities
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Downloads
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Integrations
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Extras
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-column">
+                    <h4 class="block-title">
+                        Company
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                About us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Clients
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Resources
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Blog
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-column">
+                    <h4 class="block-title">
+                        Support
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Help
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Tutorials
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                API
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </section>
         </main>
         <footer>

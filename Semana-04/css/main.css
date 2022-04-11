@@ -2,6 +2,7 @@
 
 #welcome {
     position: relative;
+
 }
 
 #welcome-title {
@@ -25,7 +26,7 @@
     color: #373867;
     width: 100%;
     text-align: center;
-    margin: 30px;
+    margin: 10px;
 }
 
 #first-img {
@@ -33,8 +34,226 @@
     align-content: center;
 }
 
+#features {
+    position: relative;
+    margin-top: 25%;
+}
 
+#features-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #373867;
+    width: 100%;
+}
+
+#attributes {
+    position: relative;
+    margin-top: 10%;
+    padding-left: 10%;
+}
+
+#info {
+    position: relative;
+    width: 100%;
+    margin-top: 15%;
+}
+
+#info-title {
+    margin-bottom: 10%;
+    font-weight: bold;
+    font-size: 30px;
+    color: #373867;
+}
+
+#history {
+    position: relative;
+    width: 100%;
+    margin-top: 20%;
+    text-align: center;
+    color: #373867;
+}
+
+#history-title {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#history-p1 {
+    margin-bottom: 60px;
+    margin-left: 5%;
+    width: 90%;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#block {
+    position: relative;
+    width: 100%;
+    margin-top: 20%;
+    margin-bottom: 40%;
+}
+
+.features-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.features-image {
+    width: 50%;
+    height: 25%;
+    float: left;
+    z-index: 50;
+}
+
+.features-h4 {
+    display: flex;
+    flex-direction: column;
+    margin: 5% 0 8% 0;
+    font-weight: bold;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #373867;
+    z-index: 60;
+}
+
+.features-p {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #373867;
+    font-size: 12px;
+    line-height: 20px;
+    z-index: 60;
+}
+
+.attribute-box {
+    border: 5px solid #9AB593;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    padding: 40px 60px 60px 60px;
+    margin: 0 96px 50px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.attributes-h4 {
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #AACE9B;
+    text-transform: uppercase;
+}
+
+.attribute-text {
+    color: #373867;
+}
+
+.form label {
+    display: block;
+}
+
+.info-contact {
+    margin: 15px 0 50px 0;
+}
+
+.info-c-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.info-i {
+    position: relative;
+    margin-left: 125px;
+    width: 32px;
+    height: 32px;
+    background-color: #37386766;
+    cursor: pointer;
+}
+
+.info-submit {
+    display: block;
+    position: absolute;
+    padding: 8px 15px;
+    border: 2px solid #373867;
+    border-radius: 5px;
+    background-color: #AACE9B;
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 18px;
+    font-style: bold;
+    text-transform: uppercase;
+    color: #373867;
+    cursor: pointer;
+}
+
+.history-p {
+    margin-bottom: 40px;
+    margin-left: 5%;
+    width: 90%;
+    font-size: 13px;
+}
+
+.block-column {
+    display: inline-block;
+    width: 20%;
+    padding: 0 5%;
+    text-align: justify; 
+}
+
+.block-title {
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    color:#AACE9B;
+    text-transform: uppercase;
+}
+
+.block li {
+    line-height: 20px;
+    list-style-type: disc;
+    font-weight: bold;
+    color: #373867;
+}
+
+.block a {
+    text-decoration: none;
+}
 
 main {
     font-family: 'Roboto', sans-serif;
+}
+
+form {
+    text-align: start;
+    margin-left: 50px;
+    font-weight: bold;
+    color: #373867;
+}
+
+input {
+    margin: 15px 0 50px 0;
+    padding: 15px 10px;
+    width: 80%;
+    border-style: none;
+    border-radius: 15px;
+    background-color: rgba(55, 56, 103, 0.4);
+}
+
+textarea {
+    margin: 15px 0 50px 0;
+    padding: 15px 10px;
+    width: 80%;
+    border-style: none;
+    border-radius: 15px;
+    background-color: rgba(55, 56, 103, 0.4);
 }

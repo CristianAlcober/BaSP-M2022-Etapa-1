@@ -9,7 +9,9 @@
 }
 
 #burguer {
-    display: inline-flex;
+    display: flex;
+    float: left;
+    width: 10%;
 }
 
 header {

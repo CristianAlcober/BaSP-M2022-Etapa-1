@@ -2,7 +2,7 @@
 
 #welcome {
     position: relative;
-
+    top: 200px;
 }
 
 #welcome-title {
@@ -36,7 +36,7 @@
 
 #features {
     position: relative;
-    margin-top: 25%;
+    margin-top: 55%;
 }
 
 #features-title {
@@ -98,12 +98,12 @@
 
 .features-block {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 15%;
 }
 
 .features-image {
@@ -116,9 +116,10 @@
 .features-h4 {
     display: flex;
     flex-direction: column;
+    text-align: center;
     margin: 5% 0 8% 0;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 20px;
     text-transform: uppercase;
     color: #373867;
     z-index: 60;
@@ -129,7 +130,7 @@
     flex-direction: column;
     text-align: center;
     color: #373867;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 20px;
     z-index: 60;
 }
@@ -142,13 +143,14 @@
     padding: 40px 60px 60px 60px;
     margin: 0 96px 50px 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .attributes-h4 {
     margin-bottom: 30px;
-    font-size: 18px;
+    font-size: 20px;
     color: #AACE9B;
     text-transform: uppercase;
 }
@@ -168,7 +170,7 @@
 .info-c-type {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-start;
 }
 
@@ -204,10 +206,15 @@
 }
 
 .block-column {
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
     width: 20%;
     padding: 0 5%;
-    text-align: justify; 
+    margin-bottom: 10%;
+    margin-left: 30%;
+    text-align: center;
 }
 
 .block-title {

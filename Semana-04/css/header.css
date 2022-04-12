@@ -8,10 +8,11 @@
     text-align: right;
 }
 
-#burguer {
-    display: flex;
+#burguer-icon {
+    display: inline-flex;
     float: left;
     width: 10%;
+    vertical-align: middle;
 }
 
 header {
@@ -31,7 +32,7 @@ h1 {
 }
 
 @media only screen and (min-width:768px) {
-    #burguer {
+    #burguer-icon {
         display: none;
     }
 }

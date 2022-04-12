@@ -42,6 +42,10 @@ In this repository you will find:
 
 If you want to know more about this project, you can get in contact via e-mail: alcober.cristian@outlook.com
 
+## Link
+
+You can watch the page of this project with the following URL: https://cristianalcober.github.io/BaSP-M2022-Etapa-1/Semana-04/index.html
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

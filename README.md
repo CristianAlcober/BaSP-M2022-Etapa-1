@@ -28,6 +28,7 @@ This project's objective is to ease the access for clients, employees, and other
 
 * Semana-02 : We've worked to design the html structure for the landing page.
 * Semana-03 : Added the stylesheet for the landing page.
+* Semana-04 : The stylesheets were updated to make the design more responsive using flexbox.
 
 ## Content
 

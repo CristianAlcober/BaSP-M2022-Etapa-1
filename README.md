@@ -29,6 +29,7 @@ This project's objective is to ease the access for clients, employees, and other
 * Semana-02 : We've worked to design the html structure for the landing page.
 * Semana-03 : Added the stylesheet for the landing page.
 * Semana-04 : The stylesheets were updated to make the design more responsive using flexbox.
+* Semana-05 : We've started working with JS making some exercises.
 
 ## Content
 
@@ -37,6 +38,7 @@ In this repository you will find:
 * An HTML index file with the structure of the layout
 * An 'img' folder that contains all of the images used in the page
 * An 'css' folder that contains the stylesheets needed for the page
+* An 'exercises' folder that contains JS files with exercises resolved.
 
 ## Contact
 

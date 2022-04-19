@@ -33,6 +33,12 @@ h1 {
 
 @media only screen and (min-width:768px) {
     #burguer-icon {
+        width: 6%;
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    #burguer-icon {
         display: none;
     }
 }

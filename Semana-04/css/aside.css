@@ -5,7 +5,7 @@ aside {
     flex-direction: none;
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 1024px){
     aside {
         position: fixed;
         top: 70px; 
@@ -52,6 +52,7 @@ aside {
         padding: 0 15px;
         color: #fff;
         top: 25px;
+
     }
     
     .aside-h3 {

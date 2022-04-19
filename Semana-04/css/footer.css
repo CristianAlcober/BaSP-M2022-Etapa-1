@@ -9,7 +9,10 @@
 }
 
 footer {
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     background-color: #AACE9B;
     font-family: 'Roboto', sans-serif;
@@ -17,13 +20,12 @@ footer {
 
 @media only screen and (min-width: 768px) {
     footer {
-        margin-top: 4810px;
-        left: 5%;
+        
     }
 }
 
 @media only screen and (min-width: 1024px) {
     footer {
-        margin-top: 5500px;
+        
     }
 }

@@ -328,6 +328,19 @@ textarea {
         width: 55%;
     }
 
+    #block {
+        display: flex;
+    }
+
+    #block li {
+        margin-left: 50px;
+        line-height: 20px;
+        list-style-type: disc;
+        font-weight: bold;
+        color: #373867;
+        text-align: justify;
+    }
+
     .features-block{
         display: inline-flex;
         flex-direction: row;
@@ -373,9 +386,28 @@ textarea {
         font-size: 11px;
     }
 
+    .info-submit {
+        width: 25%;
+        align-items: center;
+        margin-left: 225px;
+    }
+
+    .block-title {
+        font-size: 28px;
+    }
+
+    .block-column {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        width: 20%;
+        margin-left: 0%;
+    }
+
     main {
-        width: 75%;
-        float: right;
+        width: 90%;
+        margin-left: 5%;
     }
 }
 
@@ -421,19 +453,6 @@ textarea {
     #history-p1 {
         font-size: 22px;
     }
-
-    #block {
-        display: flex;
-    }
-
-    #block li {
-        margin-left: 50px;
-        line-height: 20px;
-        list-style-type: disc;
-        font-weight: bold;
-        color: #373867;
-        text-align: justify;
-    }
     
     .features-h4 {
         font-size: 25px;
@@ -455,18 +474,8 @@ textarea {
         font-size: 18px;
     }
 
-    .block-title {
-        font-size: 28px;
+    main {
+        width: 75%;
+        margin-left: 21%;
     }
-
-    .block-column {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        width: 20%;
-        margin-left: 0%;
-    }
-
-    
 }

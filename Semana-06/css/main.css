@@ -1,0 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+#welcome {
+    position: relative;
+    top: 200px;
+}
+
+#welcome-title {
+    font-size: 45px;
+    font-weight: bold;
+    color: #373867;
+    width: 100%;
+    margin-left: 5px;
+}
+
+#welcome-subtitle {
+    font-size: 26px;
+    font-weight: bold;
+    color: #373867;
+    width: 100%;
+    display: block;
+    margin-top: 30px;
+    margin-left: 25px;
+}
+
+#welcome-text {
+    font-size: 15px;
+    color: #373867;
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+}
+
+#first-img {
+    width: 100%;
+    align-content: center;
+}
+
+#features {
+    position: relative;
+    margin-top: 55%;
+}
+
+#features-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #373867;
+    width: 100%;
+    margin-left: 40px;
+}
+
+#attributes {
+    position: relative;
+    margin-top: 10%;
+    padding-left: 10%;
+}
+
+#info {
+    position: relative;
+    width: 100%;
+    margin-top: 15%;
+}
+
+#info-title {
+    margin-bottom: 10%;
+    font-weight: bold;
+    font-size: 30px;
+    color: #373867;
+}
+
+#history {
+    position: relative;
+    width: 100%;
+    margin-top: 20%;
+    text-align: center;
+    color: #373867;
+}
+
+#history-title {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#history-p1 {
+    margin-bottom: 60px;
+    margin-left: 5%;
+    width: 90%;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#block {
+    position: relative;
+    width: 100%;
+    margin-top: 20%;
+    margin-bottom: 40%;
+}
+
+.features-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 15%;
+}
+
+.features-image {
+    width: 50%;
+    height: 25%;
+    display: table-row;
+    flex-direction: row;
+    z-index: 50;
+}
+
+.features-h4 {
+    display: flex;
+    flex-direction: table-row;
+    text-align: center;
+    margin: 5% 0 8% 0;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #373867;
+    z-index: 60;
+}
+
+.features-p {
+    display: flex;
+    flex-direction: table-row;
+    text-align: center;
+    color: #373867;
+    font-size: 12px;
+    line-height: 20px;
+    width: 80%;
+    z-index: 60;
+}
+
+.f-p {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.attribute-box {
+    border: 5px solid #9AB593;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    padding: 40px 60px 60px 60px;
+    margin: 0 80px 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.attributes-h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #AACE9B;
+    text-transform: uppercase;
+}
+
+.attribute-text {
+    color: #373867;
+}
+
+.form label {
+    display: block;
+}
+
+.info-contact {
+    margin: 15px 0 50px 0;
+}
+
+.info-c-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.info-i {
+    position: relative;
+    margin-left: 125px;
+    width: 32px;
+    height: 32px;
+    background-color: #37386766;
+    cursor: pointer;
+}
+
+.info-submit {
+    display: block;
+    position: relative;
+    padding: 8px 15px;
+    border: 2px solid #373867;
+    border-radius: 5px;
+    background-color: #AACE9B;
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 18px;
+    font-style: bold;
+    text-transform: uppercase;
+    color: #373867;
+    cursor: pointer;
+}
+
+.history-p {
+    margin-bottom: 40px;
+    margin-left: 5%;
+    width: 90%;
+    font-size: 13px;
+}
+
+.block-column {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    padding: 0 5%;
+    margin-bottom: 10%;
+    margin-left: 30%;
+    text-align: center;
+}
+
+.block-title {
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    color:#AACE9B;
+    text-transform: uppercase;
+}
+
+.block li {
+    line-height: 50px;
+    list-style-type: disc;
+    font-weight: bold;
+    color: #373867;
+}
+
+#block a {
+    text-decoration: none;
+    color: #373867;
+}
+
+main {
+    font-family: 'Roboto', sans-serif;
+}
+
+form {
+    text-align: start;
+    margin-left: 50px;
+    font-weight: bold;
+    color: #373867;
+}
+
+input {
+    margin: 15px 0 50px 0;
+    padding: 15px 10px;
+    width: 80%;
+    border-style: none;
+    border-radius: 15px;
+    background-color: rgba(55, 56, 103, 0.4);
+}
+
+textarea {
+    margin: 15px 0 50px 0;
+    padding: 15px 10px;
+    width: 80%;
+    border-style: none;
+    border-radius: 15px;
+    background-color: rgba(55, 56, 103, 0.4);
+}
+
+@media only screen and (min-width: 768px) {
+    
+    #welcome-title {
+        font-size: 45px;
+        width: 100%;
+    }
+    
+    #welcome-subtitle {
+        font-size: 26px;
+        font-weight: bold;
+        width: 100%;
+        display: flex;
+        margin-top: 30px;
+        margin-left: 25px;
+    }
+    
+    #welcome-text {
+        font-size: 15px;
+        width: 35%;
+        margin: 10px;
+        margin-left: 25px;
+        display: flex;
+        float: left;
+    }
+    
+    #first-img {
+        position: absolute;
+        width: 50%;
+        display: flex;
+        margin-left: 15%;
+        right: 5%;
+        z-index: 5;
+    }
+
+    #features {
+        margin-top: 70%;
+    }
+
+    #attributes {
+        display: inline-flex;
+    }
+
+    #info {
+        margin-left: 5%;
+    }
+    
+    #message-clients {
+        width: 55%;
+    }
+
+    #block {
+        display: flex;
+    }
+
+    #block li {
+        margin-left: 50px;
+        line-height: 20px;
+        list-style-type: disc;
+        font-weight: bold;
+        color: #373867;
+        text-align: justify;
+    }
+
+    .features-block{
+        display: inline-flex;
+        flex-direction: row;
+        width: 40%;
+        margin-right: 40px;
+        vertical-align: middle;
+    }
+
+    .features-image {
+        width: 40%;
+    }
+
+    .features-h4 {
+        position: relative;
+        font-size: 15px;
+    }
+    
+    .features-p {
+        position: relative;
+        font-size: 11px;
+    }
+
+    .attribute-box {
+        width: 45%;
+        height: 25%;
+        border: 5px solid #9AB593;
+        font-size: 12px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .attributes-h4 {
+        display: flex;
+        margin-bottom: 30px;
+        font-size: 20px;
+    }
+    
+    .attribute-text {
+        display: flex;
+        font-size: 11px;
+    }
+
+    .info-submit {
+        width: 25%;
+        align-items: center;
+        margin-left: 225px;
+    }
+
+    .block-title {
+        font-size: 28px;
+    }
+
+    .block-column {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        width: 20%;
+        margin-left: 0%;
+    }
+
+    main {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    
+    #welcome-title {
+        font-size: 60px;
+    }
+
+    #welcome-subtitle {
+        font-size: 35px;
+    }
+    
+    #welcome-text {
+        margin-top: 10%;
+        font-size: 22px;
+    }
+
+    #features-title {
+        font-size: 48px;
+    }
+
+    #attributes {
+        margin-top: 20%;
+    }
+
+    #info-title {
+        font-size: 48px;
+    }
+
+    #message-clients {
+        width: 65%;
+    }
+
+    #history {
+        width: 85%;
+    }
+
+    #history-title {
+        font-size: 65px;
+    }
+
+    #history-p1 {
+        font-size: 22px;
+    }
+    
+    .features-h4 {
+        font-size: 25px;
+    }
+
+    .features-p {
+        font-size: 15px;
+    }
+
+    .attributes-h4 {
+        font-size: 25px;
+    }
+
+    .attribute-text {
+        font-size: 14px;
+    }
+
+    .history-p {
+        font-size: 18px;
+    }
+
+    main {
+        width: 75%;
+        margin-left: 21%;
+    }
+}

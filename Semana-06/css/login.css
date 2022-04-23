@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+#container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #FFF;
+    padding: 35px 75px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1px;
+}
+
+#title-login {
+    font-size: 30px;
+    font-weight: bold;
+    color: #373867;
+    margin-bottom: 40px;
+}
+
+#e-mail {
+    display: flex;
+    padding: 12px 8px 12px 10px;
+    border: none;
+}
+
+#pass {
+    display: flex;
+    padding: 12px 8px 12px 10px;
+    border: none;
+}
+
+#record {
+    font-size: 18px;
+    color: #373867;
+    margin-bottom: 40px;
+}
+
+#forgot {
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: #373867;
+    text-align: right;
+    margin-bottom: 50px;
+}
+
+#c-position {
+    display: flex;
+    justify-content: center;
+}
+
+#continue {
+    display: flex;
+    padding: 8px 55px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #AACE9B;
+    color: #373867;
+    cursor: pointer;
+}
+
+.log-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.line {
+    border:#AACE9B solid 2px;
+    margin-bottom: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}

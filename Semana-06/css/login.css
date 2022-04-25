@@ -61,10 +61,10 @@
     display: flex;
     padding: 12px 8px 12px 10px;
     border: none;
+    border-bottom: 3px solid #AACE9B;
 }
 
 .line {
-    border:#AACE9B solid 2px;
     margin-bottom: 20px;
 }
 

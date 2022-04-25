@@ -20,18 +20,6 @@
     margin-bottom: 40px;
 }
 
-#e-mail {
-    display: flex;
-    padding: 12px 8px 12px 10px;
-    border: none;
-}
-
-#pass {
-    display: flex;
-    padding: 12px 8px 12px 10px;
-    border: none;
-}
-
 #record {
     font-size: 18px;
     color: #373867;
@@ -67,6 +55,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.field {
+    display: flex;
+    padding: 12px 8px 12px 10px;
+    border: none;
 }
 
 .line {

@@ -1,4 +1,5 @@
 window.onload = function () {
+    //          VARIABLES            //
     var nameLong = false;
     var charLetters = false;
     var text = '';
@@ -9,9 +10,11 @@ window.onload = function () {
     var adChar = false;
     var locationLong = false;
     var locationLetters = false;
+    var form = document.querySelector("#form");
     new Array = Alphabet["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u",
     "v","w","x","y","z"];
 
+    //          NAME VALIDATOR            //
     function nameValidator() {
         var name = document.getElementById('f-name');
 
@@ -40,6 +43,7 @@ window.onload = function () {
         }
     }
 
+    //          LAST NAME VALIDATOR            //
     function lastNameValidator() {
         var lastName = document.getElementById('l-name');
 
@@ -68,6 +72,7 @@ window.onload = function () {
         }
     }
 
+    //          DATE OF BIRTH VALIDATOR            //
     function birthDateValidator() {
         var birth = document.getElementById('birth');
 
@@ -80,6 +85,7 @@ window.onload = function () {
         }
     }
 
+    //          DNI VALIDATOR            //
     function dniValidator() {
         var dni = document.getElementById('dni');
         
@@ -92,6 +98,7 @@ window.onload = function () {
         }
     }
 
+    //          PHONE NUMBER VALIDATOR            //
     function phoneValidator() {
         var phone = document.getElementById('phone');
         
@@ -104,6 +111,7 @@ window.onload = function () {
         }
     }
 
+    //          ADRESS VALIDATOR            //
     function adressValidator() {
         var adress = document.getElementById('adress');
 
@@ -155,6 +163,7 @@ window.onload = function () {
         }
     }
 
+    //          LOCATION VALIDATOR            //
     function locationValidator() {
         var location = document.getElementById('location');
         var counter = 0;
@@ -187,6 +196,7 @@ window.onload = function () {
         }
     }
 
+    //          ZIP CODE VALIDATOR            //
     function zipCodeValidator() {
         var zipCode = document.getElementById('zip');
         if (zipCode.value.length == 4 || zipCode.value.length == 5 ) {
@@ -197,6 +207,7 @@ window.onload = function () {
         }
     }
 
+    //          E-MAIL VALIDATOR            //
     function emailValidator() {
         var email = document.getElementById('e-mail');
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
@@ -208,6 +219,7 @@ window.onload = function () {
         }
     }
 
+    //          PASSWORD VALIDATOR            //
     function passwordValidator() {
         var charCounter = 0;
         var numCounter = 0;
@@ -257,6 +269,7 @@ window.onload = function () {
         }
     }
 
+    //          CONFIRM PASSWORD VALIDATOR            //
     function confirmPasswordValidator() {
         var passConfirmed = document.getElementById('c-pass');
 
@@ -268,6 +281,7 @@ window.onload = function () {
         }
     }
 
+    //          SUBMIT            //
     function fillForm(e) {
         if (passwordValidator() && emailValidator() && nameValidator() && lastNameValidator() && dniValidator() && phoneValidator
          && confirmPasswordValidator() && zipCodeValidator() && locationValidator() && adressValidator() && birthDateValidator()) {
@@ -279,10 +293,12 @@ window.onload = function () {
         }
     }
 
+    //          FOCUS            //
     function focusFieldset(id) {
         id.style = "border-color: none";
     }
 
+    //          BLUR            //
     function blurFieldset(id,boolean) {
         if (boolean) {
             id.style = "border: solid 4px red";
@@ -291,7 +307,10 @@ window.onload = function () {
         }
     }
 
+    //          EVENT LISTENER SUBMIT            //
     form.addEventListener("continue", fillForm);
+
+    //          EVENT LISTENERS BLUR            //
     form.addEventListener("e-mail".onblur, blurFieldset("email", emailValidator));
     form.addEventListener("pass".onblur, blurFieldset("pass", passwordValidator));
     form.addEventListener("f-name".onblur, blurFieldset("f-name", nameValidator));
@@ -304,6 +323,7 @@ window.onload = function () {
     form.addEventListener("c-pass".onblur, blurFieldset("c-pass", confirmPasswordValidator));
     form.addEventListener("birth".onblur, blurFieldset("birth", birthDateValidator));
 
+    //          EVENT LISTENERS FOCUS            //
     form.addEventListener("e-mail".onfocus, focusFieldset("e-mail"));
     form.addEventListener("pass".onfocus, focusFieldset("pass"));
     form.addEventListener("f-name".onfocus, focusFieldset("f-name"));

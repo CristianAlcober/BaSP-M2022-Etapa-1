@@ -2,13 +2,15 @@ window.onload = function () {
     var nameLong = false;
     var charLetters = false;
     var text = '';
-    var presentDate =  ;
+    var textCorrect = '';
     var adSpace = 0;
     var adLong = false;
     var adNum = false;
     var adChar = false;
     var locationLong = false;
     var locationLetters = false;
+    new Array = Alphabet["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u",
+    "v","w","x","y","z"];
 
     function nameValidator() {
         var name = document.getElementById('f-name');
@@ -31,6 +33,7 @@ window.onload = function () {
         }
 
         if (nameLong && charLetters) {
+            textCorrect.concat('\n Name: ' + name.value);
             return true;
         } else {
             return false;
@@ -58,6 +61,7 @@ window.onload = function () {
         }
 
         if (nameLong && charLetters) {
+            textCorrect.concat('\n Last Name: ' + lastName.value);
             return true;
         } else {
             return false;
@@ -65,13 +69,22 @@ window.onload = function () {
     }
 
     function birthDateValidator() {
-        
+        var birth = document.getElementById('birth');
+
+        if (birth.value.substring(6,9) <= 2004) {
+            textCorrect.concat('\n DoB: ' + birth.value);
+            return true;
+        } else {
+            text.concat('\n -Invalid birth date format. Minors are not allowed');
+            return false;
+        }
     }
 
     function dniValidator() {
         var dni = document.getElementById('dni');
         
         if (dni.value.length() == 7 || dni.value.length() == 8) {
+            textCorrect.concat('\n DNI: ' + dni.value);
             return true;
         }  else {
             text.concat('\n -Invalid dni length');
@@ -83,6 +96,7 @@ window.onload = function () {
         var phone = document.getElementById('phone');
         
         if (phone.value.length() == 10) {
+            textCorrect.concat('\n Phone Number: ' + phone.value);
             return true;
         }  else {
             text.concat('\n -Invalid phone length');
@@ -126,7 +140,7 @@ window.onload = function () {
             text.concat('\n -There is not a numeration in the adress');
         }
 
-        if (adress.value.indexOf(' ')) {
+        if (adress.value.indexOf(' ') >= 0) {
             adSpace = true;
         } else {
             text.concat('\n -There is not a separation in the adress');
@@ -134,6 +148,7 @@ window.onload = function () {
         }
         
         if (adLong && adChar && adNum && adSpace) {
+            textCorrect.concat('\n Adress: ' + adress.value);
             return true;
         } else {
             return false;
@@ -165,6 +180,7 @@ window.onload = function () {
         }
 
         if (locationLong && locationLetters) {
+            textCorrect.concat('\n Location: ' + location.value);
             return true;
         } else {
             return false;
@@ -174,6 +190,7 @@ window.onload = function () {
     function zipCodeValidator() {
         var zipCode = document.getElementById('zip');
         if (zipCode.value.length == 4 || zipCode.value.length == 5 ) {
+            textCorrect.concat('\n ZIP Code: ' + zipCode.value);
             return true;
         } else {
             return false;
@@ -183,21 +200,119 @@ window.onload = function () {
     function emailValidator() {
         var email = document.getElementById('e-mail');
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
-            email.style = "border-color: none";
+            textCorrect.concat('\n E-Mail: ' + email.value);
             return true;
         } else {
-            email.style = "border: solid 2px red; border-radius: 5px";
             text.concat('-Invalid email format');
             return false;
         }
     }
 
     function passwordValidator() {
+        var charCounter = 0;
+        var numCounter = 0;
+        var falseNum = 0;
+        var falseChar = 0;
+        var weirdCounter = 0;
+        var pass = document.getElementById('pass');
+
+        for (let i = 0; i <= pass.value.length; i++) {
+            if (Number.isInteger(pass.value.substring((i-1),i))) {
+                numCounter ++;
+            } else {
+                falseNum ++;
+            }
+        }
         
+        for (let i = 0; i <= pass.value.length; i++) {
+            if (isNaN(pass.value.substring((i-1),i))) {
+                if (Alphabet.indexOf(pass.value.substring((i-1),i)) >= 0) {
+                    charCounter ++;
+                } else {
+                    weirdCounter ++;
+                }
+            } else {
+                falseChar ++;
+            }
+        }
+
+        if (falseNum == charCounter && weirdCounter == 0) {
+            charLet = true;
+        } else {
+            charLet = false;
+        }
+
+        if (falseChar == numCounter && weirdCounter == 0) {
+            charNum = true;
+        } else {
+            charNum = false;
+        }
+
+        if (pass.value.length >= 8 && charNum && charLet) {
+            textCorrect.concat('\n Password: ' + pass.value);
+            return true;
+        } else {
+            return false;
+            text.concat('\n' + '-Invalid password format')
+        }
     }
 
     function confirmPasswordValidator() {
-        
+        var passConfirmed = document.getElementById('c-pass');
+
+        if (passConfirmed.value == pass.value && passConfirmed.value.length == pass.value.length) {
+            return true;
+        } else {
+            text.concat('-Both passwords do not match');
+            return false;
+        }
     }
 
+    function fillForm(e) {
+        if (passwordValidator() && emailValidator() && nameValidator() && lastNameValidator() && dniValidator() && phoneValidator
+         && confirmPasswordValidator() && zipCodeValidator() && locationValidator() && adressValidator() && birthDateValidator()) {
+            
+            alert('You have registered successfully!' + textCorrect);
+        } else {
+            e.preventDefault();
+            alert('The next fields have not been validated: \n' + text);
+        }
+    }
+
+    function focusFieldset(id) {
+        id.style = "border-color: none";
+    }
+
+    function blurFieldset(id,boolean) {
+        if (boolean) {
+            id.style = "border: solid 4px red";
+        } else {
+            id.style = "border-color: none";
+        }
+    }
+
+    form.addEventListener("continue", fillForm);
+    form.addEventListener("e-mail".onblur, blurFieldset("email", emailValidator));
+    form.addEventListener("pass".onblur, blurFieldset("pass", passwordValidator));
+    form.addEventListener("f-name".onblur, blurFieldset("f-name", nameValidator));
+    form.addEventListener("l-name".onblur, blurFieldset("l-name", lastNameValidator));
+    form.addEventListener("dni".onblur, blurFieldset("dni", dniValidator));
+    form.addEventListener("phone".onblur, blurFieldset("phone", phoneValidator));
+    form.addEventListener("adress".onblur, blurFieldset("adress", adressValidator));
+    form.addEventListener("location".onblur, blurFieldset("location", locationValidator));
+    form.addEventListener("zip".onblur, blurFieldset("zip", zipCodeValidator));
+    form.addEventListener("c-pass".onblur, blurFieldset("c-pass", confirmPasswordValidator));
+    form.addEventListener("birth".onblur, blurFieldset("birth", birthDateValidator));
+
+    form.addEventListener("e-mail".onfocus, focusFieldset("e-mail"));
+    form.addEventListener("pass".onfocus, focusFieldset("pass"));
+    form.addEventListener("f-name".onfocus, focusFieldset("f-name"));
+    form.addEventListener("l-name".onfocus, focusFieldset("l-name"));
+    form.addEventListener("dni".onfocus, focusFieldset("dni"));
+    form.addEventListener("phone".onfocus, focusFieldset("phone"));
+    form.addEventListener("adress".onfocus, focusFieldset("adress"));
+    form.addEventListener("location".onfocus, focusFieldset("location"));
+    form.addEventListener("zip".onfocus, focusFieldset("zip"));
+    form.addEventListener("c-pass".onfocus, focusFieldset("c-pass"));
+    form.addEventListener("birth".onfocus, focusFieldset("birth"));
 }

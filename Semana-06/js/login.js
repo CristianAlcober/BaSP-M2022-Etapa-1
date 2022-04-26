@@ -3,12 +3,19 @@ window.onload = function () {
     var text = '';
     var charNum = false;
     var charLet = false;
-    var form = document.querySelector("#form");
-    new Array = Alphabet["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
+    var email = document.getElementById('e-mail');
+    var pass = document.getElementById('pass');
+    var iPass = document.getElementById('input-p');
+    var iEmail = document.getElementById('input-e');
+    var submit = document.getElementById('continue');
 
     //          E-MAIL VALIDATOR            //
     function emailValidator() {
-        var email = document.getElementById('e-mail');
+        if (email.value == '') {
+            text.concat('-E-mail fieldset is empty');
+            return false;
+        }
+        
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
             return true;
         } else {
@@ -23,36 +30,37 @@ window.onload = function () {
         var numCounter = 0;
         var falseNum = 0;
         var falseChar = 0;
-        var weirdCounter = 0;
-        var pass = document.getElementById('pass');
+
+        if (pass.value == '') {
+            text.concat('-Password fieldset is empty');
+            return false;
+        }
 
         for (let i = 0; i <= pass.value.length; i++) {
             if (Number.isInteger(pass.value.substring((i-1),i))) {
-                numCounter ++;
+                numCounter += 1;
+                console.log(numCounter);
             } else {
-                falseNum ++;
+                falseNum += 1;
             }
         }
         
         for (let i = 0; i <= pass.value.length; i++) {
-            if (isNaN(pass.value.substring((i-1),i))) {
-                if (Alphabet.indexOf(pass.value.substring((i-1),i)) >= 0) {
-                    charCounter ++;
-                } else {
-                    weirdCounter ++;
-                }
+            if (Number.isNaN(pass.value.substring((i-1),i))) {
+                charCounter += 1;
+                console.log(charCounter);
             } else {
-                falseChar ++;
+                falseChar += 1;
             }
         }
 
-        if (falseNum == charCounter && weirdCounter == 0) {
+        if (falseNum == charCounter) {
             charLet = true;
         } else {
             charLet = false;
         }
 
-        if (falseChar == numCounter && weirdCounter == 0) {
+        if (falseChar == numCounter) {
             charNum = true;
         } else {
             charNum = false;
@@ -67,43 +75,55 @@ window.onload = function () {
     }
 
     //          SUBMIT            //
-    function fillForm(e) {
+    function fillForm() {
         if (passwordValidator() && emailValidator()) {
             alert('You have logged in successfully!' + ' \n E-Mail: ' + email.value + ' \n Password: ' + pass.value);
         } else {
-            e.preventDefault();
             alert('The next fields have not been validated: \n' + text);
         }
     }
 
-    //          FOCUS            //
-    function focusFieldset(id) {
-        id.style = "border-color: none";
+    //          PASSWORD FOCUS            //
+    function focusFieldsetPass() {
+        pass.classList.remove("error");
+        iPass.classList.remove("in-error");
+    }
+
+    //          E-MAIL FOCUS            //
+    function focusFieldsetEmail() {
+        email.classList.remove("error");
+        iEmail.classList.remove("in-error");
     }
 
     //          E-MAIL BLUR            //
-    function blurFieldsetEmail(id) {
-        if (emailValidator() == false) {
-            "border-color: red solid 5px; border-radius: 5px";
+    function blurFieldsetEmail() {
+        if (emailValidator()) {
+            email.classList.remove("error");
+            iEmail.classList.remove("in-error");
         } else {
-            id.style = "border-color: none";
+            email.classList.add("error");
+            iEmail.classList.add("in-error");
+            
         }
     }
+    
 
     //          PASSWORD BLUR            //
-    function blurFieldsetPass(id) {
-        if (passwordValidator() == false) {
-            id.style = "border-color: red solid 5px; border-radius: 5px";
-        } {
-            id.style = "border-color: none";
+    function blurFieldsetPass() {
+        if (passwordValidator()) {
+            pass.classList.remove("error");
+            iPass.classList.remove("in-error");
+        } else {
+            pass.classList.add("error");
+            iPass.classList.add("in-error");
         }
     }
 
     //          EVENT LISTENERS            //
-    form.addEventListener("continue", fillForm);
-    form.addEventListener("e-mail".onblur, blurFieldsetEmail("email"));
-    form.addEventListener("pass".onblur, blurFieldsetPass("pass"));
-    form.addEventListener("e-mail".onfocus,focusFieldset("e-mail"));
-    form.addEventListener("pass".onfocus,focusFieldset("pass"));
+    email.addEventListener("blur", blurFieldsetEmail);
+    email.addEventListener("focus", focusFieldsetEmail);
+    pass.addEventListener("blur", blurFieldsetPass);
+    pass.addEventListener("focus", focusFieldsetPass);
+    submit.addEventListener("click", fillForm());
 
 }

@@ -10,14 +10,23 @@ window.onload = function () {
     var adChar = false;
     var locationLong = false;
     var locationLetters = false;
-    var form = document.querySelector("#form");
-    new Array = Alphabet["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u",
-    "v","w","x","y","z"];
+    var name = document.getElementById('f-name');
+    var lastName = document.getElementById('l-name');
+    var birth = document.getElementById('birth');
+    var dni = document.getElementById('dni');
+    var phone = document.getElementById('phone');
+    var adress = document.getElementById('adress');
+    var location = document.getElementById('location');
+    var zipCode = document.getElementById('zip');
+    var email = document.getElementById('e-mail');
+    var pass = document.getElementById('pass');
+    var passConfirmed = document.getElementById('c-pass');
+    var submit = document.getElementById('continue');
+
+    
 
     //          NAME VALIDATOR            //
     function nameValidator() {
-        var name = document.getElementById('f-name');
-
         if (name.value.length > 3 ) {
             nameLong = true;
         } else {
@@ -45,8 +54,6 @@ window.onload = function () {
 
     //          LAST NAME VALIDATOR            //
     function lastNameValidator() {
-        var lastName = document.getElementById('l-name');
-
         if (lastName.value.length > 3 ) {
             nameLong = true;
         } else {
@@ -59,7 +66,6 @@ window.onload = function () {
                 charLetters = true;
             } else {
                 charLetters = false;
-                text.concat('\n -Invalid last name format');
                 break;
             }
         }
@@ -68,14 +74,13 @@ window.onload = function () {
             textCorrect.concat('\n Last Name: ' + lastName.value);
             return true;
         } else {
+            text.concat('\n -Invalid last name format');
             return false;
         }
     }
 
     //          DATE OF BIRTH VALIDATOR            //
     function birthDateValidator() {
-        var birth = document.getElementById('birth');
-
         if (birth.value.substring(6,9) <= 2004) {
             textCorrect.concat('\n DoB: ' + birth.value);
             return true;
@@ -86,9 +91,7 @@ window.onload = function () {
     }
 
     //          DNI VALIDATOR            //
-    function dniValidator() {
-        var dni = document.getElementById('dni');
-        
+    function dniValidator() {       
         if (dni.value.length() == 7 || dni.value.length() == 8) {
             textCorrect.concat('\n DNI: ' + dni.value);
             return true;
@@ -100,8 +103,6 @@ window.onload = function () {
 
     //          PHONE NUMBER VALIDATOR            //
     function phoneValidator() {
-        var phone = document.getElementById('phone');
-        
         if (phone.value.length() == 10) {
             textCorrect.concat('\n Phone Number: ' + phone.value);
             return true;
@@ -113,8 +114,6 @@ window.onload = function () {
 
     //          ADRESS VALIDATOR            //
     function adressValidator() {
-        var adress = document.getElementById('adress');
-
         if (adress.value.length >= 5) {
             adLong = true;
         } else {
@@ -165,7 +164,6 @@ window.onload = function () {
 
     //          LOCATION VALIDATOR            //
     function locationValidator() {
-        var location = document.getElementById('location');
         var counter = 0;
 
         if (location.value.length > 3 ) {
@@ -198,7 +196,6 @@ window.onload = function () {
 
     //          ZIP CODE VALIDATOR            //
     function zipCodeValidator() {
-        var zipCode = document.getElementById('zip');
         if (zipCode.value.length == 4 || zipCode.value.length == 5 ) {
             textCorrect.concat('\n ZIP Code: ' + zipCode.value);
             return true;
@@ -209,7 +206,6 @@ window.onload = function () {
 
     //          E-MAIL VALIDATOR            //
     function emailValidator() {
-        var email = document.getElementById('e-mail');
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
             textCorrect.concat('\n E-Mail: ' + email.value);
             return true;
@@ -226,7 +222,6 @@ window.onload = function () {
         var falseNum = 0;
         var falseChar = 0;
         var weirdCounter = 0;
-        var pass = document.getElementById('pass');
 
         for (let i = 0; i <= pass.value.length; i++) {
             if (Number.isInteger(pass.value.substring((i-1),i))) {
@@ -264,15 +259,13 @@ window.onload = function () {
             textCorrect.concat('\n Password: ' + pass.value);
             return true;
         } else {
-            return false;
             text.concat('\n' + '-Invalid password format')
+            return false;
         }
     }
 
     //          CONFIRM PASSWORD VALIDATOR            //
     function confirmPasswordValidator() {
-        var passConfirmed = document.getElementById('c-pass');
-
         if (passConfirmed.value == pass.value && passConfirmed.value.length == pass.value.length) {
             return true;
         } else {
@@ -288,51 +281,171 @@ window.onload = function () {
             
             alert('You have registered successfully!' + textCorrect);
         } else {
-            e.preventDefault();
+            submit.preventDefault();
             alert('The next fields have not been validated: \n' + text);
         }
     }
 
     //          FOCUS            //
-    function focusFieldset(id) {
-        id.style = "border-color: none";
+    function focusFieldsetEmail() {
+        pass.classList.remove("error");
     }
 
+    function focusFieldsetPass() {
+        pass.classList.remove("error");
+    }
+
+    function focusFieldsetName() {
+        name.classList.remove("error");
+    }
+
+    function focusFieldsetLastName() {
+        lastName.classList.remove("error");
+    }
+
+    function focusFieldsetDni() {
+        dni.classList.remove("error");
+    }
+
+    function focusFieldsetPhone() {
+        phone.classList.remove("error");
+    }
+
+    function focusFieldsetAdress() {
+        adress.classList.remove("error");
+    }
+
+    function focusFieldsetLocation() {
+        location.classList.remove("error");
+    }
+
+    function focusFieldsetZip() {
+        zipCode.classList.remove("error");
+    }
+
+    function focusFieldsetCPass() {
+        passConfirmed.classList.remove("error");
+    }
+
+    function focusFieldsetBirth() {
+        birth.classList.remove("error");
+    }
+    
     //          BLUR            //
-    function blurFieldset(id,boolean) {
-        if (boolean) {
-            id.style = "border: solid 4px red";
+    function blurFieldsetEmail() {
+        if (emailValidator) {
+            email.classList.remove("error");
         } else {
-            id.style = "border-color: none";
+            email.classList.add("error");
+        }
+    }
+
+    function blurFieldsetPass() {
+        if (passwordValidator) {
+            pass.classList.remove("error");
+        } else {
+            pass.classList.add("error");
+        }
+    }
+
+    function blurFieldsetName() {
+        if (nameValidator) {
+            name.classList.remove("error");
+        } else {
+            name.classList.add("error");
+        }
+    }
+
+    function blurFieldsetLastName() {
+        if (lastNameValidator) {
+            lastName.classList.remove("error");
+        } else {
+            lastName.classList.add("error");
+        }
+    }
+
+    function blurFieldsetDni() {
+        if (dniValidator) {
+            dni.classList.remove("error");
+        } else {
+            dni.classList.add("error");
+        }
+    }
+
+    function blurFieldsetPhone() {
+        if (phoneValidator) {
+            phone.classList.remove("error");
+        } else {
+            phone.classList.add("error");
+        }
+    }
+
+    function blurFieldsetAdress() {
+        if (adressValidator) {
+            adress.classList.remove("error");
+        } else {
+            adress.classList.add("error");
+        }
+    }
+
+    function blurFieldsetLocation() {
+        if (locationValidator) {
+            location.classList.remove("error");
+        } else {
+            location.classList.add("error");
+        }
+    }
+
+    function blurFieldsetZip() {
+        if (zipCodeValidator) {
+            zipCode.classList.remove("error");
+        } else {
+            zipCode.classList.add("error");
+        }
+    }
+
+    function blurFieldsetCPass() {
+        if (confirmPasswordValidator) {
+            passConfirmed.classList.remove("error");
+        } else {
+            passConfirmed.classList.add("error");
+        }
+    }
+
+    function blurFieldsetBirth() {
+        if (birthDateValidator) {
+            birth.classList.remove("error");
+        } else {
+            birth.classList.add("error");
         }
     }
 
     //          EVENT LISTENER SUBMIT            //
-    form.addEventListener("continue", fillForm);
+    submit.addEventListener("click", fillForm());
 
     //          EVENT LISTENERS BLUR            //
-    form.addEventListener("e-mail".onblur, blurFieldset("email", emailValidator));
-    form.addEventListener("pass".onblur, blurFieldset("pass", passwordValidator));
-    form.addEventListener("f-name".onblur, blurFieldset("f-name", nameValidator));
-    form.addEventListener("l-name".onblur, blurFieldset("l-name", lastNameValidator));
-    form.addEventListener("dni".onblur, blurFieldset("dni", dniValidator));
-    form.addEventListener("phone".onblur, blurFieldset("phone", phoneValidator));
-    form.addEventListener("adress".onblur, blurFieldset("adress", adressValidator));
-    form.addEventListener("location".onblur, blurFieldset("location", locationValidator));
-    form.addEventListener("zip".onblur, blurFieldset("zip", zipCodeValidator));
-    form.addEventListener("c-pass".onblur, blurFieldset("c-pass", confirmPasswordValidator));
-    form.addEventListener("birth".onblur, blurFieldset("birth", birthDateValidator));
+    email.addEventListener("blur", blurFieldsetEmail);
+    pass.addEventListener("blur", blurFieldsetPass);
+    name.addEventListener("blur", blurFieldsetName);
+    lastName.addEventListener("blur", blurFieldsetLastName);
+    dni.addEventListener("blur", blurFieldsetDni);
+    phone.addEventListener("blur", blurFieldsetPhone);
+    adress.addEventListener("blur", blurFieldsetAdress);
+    location.addEventListener("blur", blurFieldsetLocation);
+    zipCode.addEventListener("blur", blurFieldsetZip);
+    passConfirmed.addEventListener("blur", blurFieldsetCPass);
+    birth.addEventListener("blur", blurFieldsetBirth);
 
     //          EVENT LISTENERS FOCUS            //
-    form.addEventListener("e-mail".onfocus, focusFieldset("e-mail"));
-    form.addEventListener("pass".onfocus, focusFieldset("pass"));
-    form.addEventListener("f-name".onfocus, focusFieldset("f-name"));
-    form.addEventListener("l-name".onfocus, focusFieldset("l-name"));
-    form.addEventListener("dni".onfocus, focusFieldset("dni"));
-    form.addEventListener("phone".onfocus, focusFieldset("phone"));
-    form.addEventListener("adress".onfocus, focusFieldset("adress"));
-    form.addEventListener("location".onfocus, focusFieldset("location"));
-    form.addEventListener("zip".onfocus, focusFieldset("zip"));
-    form.addEventListener("c-pass".onfocus, focusFieldset("c-pass"));
-    form.addEventListener("birth".onfocus, focusFieldset("birth"));
+    email.addEventListener("focus", focusFieldsetEmail);
+    pass.addEventListener("focus", focusFieldsetPass);
+    name.addEventListener("focus", focusFieldsetName);
+    lastName.addEventListener("focus", focusFieldsetLastName);
+    dni.addEventListener("focus", focusFieldsetDni);
+    phone.addEventListener("focus", focusFieldsetPhone);
+    adress.addEventListener("focus", focusFieldsetAdress);
+    location.addEventListener("focus", focusFieldsetLocation);
+    zipCode.addEventListener("focus", focusFieldsetZip);
+    passConfirmed.addEventListener("focus", focusFieldsetCPass);
+    birth.addEventListener("focus", focusFieldsetBirth);
 }

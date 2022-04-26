@@ -30,14 +30,14 @@ This project's objective is to ease the access for clients, employees, and other
 * Semana-03 : Added the stylesheet for the landing page.
 * Semana-04 : The stylesheets were updated to make the design more responsive using flexbox.
 * Semana-05 : We've started working with JS making some exercises.
-
+* Semana-06 : We added functionalities to the forms with JS.
 ## Content
 
 In this repository you will find:
 
-* An HTML index file with the structure of the layout
-* An 'img' folder that contains all of the images used in the page
-* An 'css' folder that contains the stylesheets needed for the page
+* An 'views' folder that contains all the screens and their respective structures.
+* An 'img' folder that contains all of the images used in the page.
+* An 'css' folder that contains the stylesheets needed for the page.
 * An 'exercises' folder that contains JS files with exercises resolved.
 
 ## Contact
@@ -47,7 +47,7 @@ If you want to know more about this project, you can get in contact via e-mail: 
 ## Link
 
 You can watch the page of this project with the following URL: 
-https://cristianalcober.github.io/BaSP-M2022-Etapa-1/Semana-04/index.html
+https://cristianalcober.github.io/BaSP-M2022-Etapa-1/Semana-06/views/index.html
 
 ## License
 

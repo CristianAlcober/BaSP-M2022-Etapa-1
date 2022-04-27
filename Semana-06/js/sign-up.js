@@ -10,6 +10,9 @@ window.onload = function () {
     var adChar = false;
     var locationLong = false;
     var locationLetters = false;
+    let Num = ['1','2','3','4','5','6','7','8','9','0'];
+    let Char = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'];
+    let Rare = ['!','¡','"','#','$','%','&','/','(',')','=','?','¿',',','.',';',':'];
     var name = document.getElementById('f-name');
     var lastName = document.getElementById('l-name');
     var birth = document.getElementById('birth');
@@ -217,49 +220,59 @@ window.onload = function () {
 
     //          PASSWORD VALIDATOR            //
     function passwordValidator() {
-        var charCounter = 0;
-        var numCounter = 0;
-        var falseNum = 0;
-        var falseChar = 0;
-        var weirdCounter = 0;
-
         for (let i = 0; i <= pass.value.length; i++) {
-            if (Number.isInteger(pass.value.substring((i-1),i))) {
-                numCounter ++;
-            } else {
-                falseNum ++;
-            }
-        }
-        
-        for (let i = 0; i <= pass.value.length; i++) {
-            if (isNaN(pass.value.substring((i-1),i))) {
-                if (Alphabet.indexOf(pass.value.substring((i-1),i)) >= 0) {
-                    charCounter ++;
+            for (let n = 0; n < pass.value.length; n++) {
+                if (pass.value.substring(i,(i+1)) == Num[n]) {
+                    charNum = true;
+                    break;
                 } else {
-                    weirdCounter ++;
+                    charNum = false;
                 }
-            } else {
-                falseChar ++;
+            }
+            if (charNum) {
+                break;
             }
         }
 
-        if (falseNum == charCounter && weirdCounter == 0) {
-            charLet = true;
-        } else {
-            charLet = false;
+        for (let i = 0; i <= pass.value.length; i++) {
+            for (let n = 0; n < pass.value.length; n++) {
+                if (pass.value.substring(i,(i+1)) == Char[n]) {
+                    charLet = true;
+                    break;
+                } else {
+                    charLet = false;
+                }
+            }
+            if (charLet) {
+                break;
+            }
         }
 
-        if (falseChar == numCounter && weirdCounter == 0) {
-            charNum = true;
-        } else {
-            charNum = false;
+        for (let i = 0; i < pass.value.length; i++) {
+            for (let n = 0; n < pass.value.length; n++) {
+                if (pass.value.substring(i,(i+1)) == Rare[n]) {
+                    charWeird = false;
+                    break;
+                } else {
+                    charWeird = true;
+                }
+            }
         }
 
-        if (pass.value.length >= 8 && charNum && charLet) {
-            textCorrect.concat('\n Password: ' + pass.value);
+        if (pass.value.length >= 8 ) {
+            passLong = true;
+        } else {
+            passLong = false;
+        }
+
+        if (passLong && charNum && charLet && charWeird) {
+            textRight.concat('\n Password: ' + pass.value);
             return true;
+        } else if (pass.value == '') {
+            text.concat('\n -Password fieldset is empty');
+            return false;
         } else {
-            text.concat('\n' + '-Invalid password format')
+            text.concat('\n -Invalid password format');
             return false;
         }
     }
@@ -275,13 +288,13 @@ window.onload = function () {
     }
 
     //          SUBMIT            //
-    function fillForm(e) {
+    function fillForm(event) {
         if (passwordValidator() && emailValidator() && nameValidator() && lastNameValidator() && dniValidator() && phoneValidator
          && confirmPasswordValidator() && zipCodeValidator() && locationValidator() && adressValidator() && birthDateValidator()) {
             
             alert('You have registered successfully!' + textCorrect);
         } else {
-            submit.preventDefault();
+            event.preventDefault();
             alert('The next fields have not been validated: \n' + text);
         }
     }

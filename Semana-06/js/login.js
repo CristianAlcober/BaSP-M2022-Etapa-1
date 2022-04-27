@@ -1,10 +1,14 @@
 window.onload = function () {
     //          VARIABLES            //
-    var text = '';
     var charNum = false;
     var charLet = false;
+    var charWeird = false;
+    var passLong = false;
     var email = document.getElementById('e-mail');
     var pass = document.getElementById('pass');
+    let Num = ['1','2','3','4','5','6','7','8','9','0'];
+    let Char = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'];
+    let Rare = ['!','¡','"','#','$','%','&','/','(',')','=','?','¿',',','.',';',':'];
     var iPass = document.getElementById('input-p');
     var iEmail = document.getElementById('input-e');
     var submit = document.getElementById('continue');
@@ -12,74 +16,79 @@ window.onload = function () {
     //          E-MAIL VALIDATOR            //
     function emailValidator() {
         if (email.value == '') {
-            text.concat('-E-mail fieldset is empty');
             return false;
         }
         
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
             return true;
         } else {
-            text.concat('-Invalid email format');
             return false;
         }
     }
 
     //          PASSWORD VALIDATOR            //
     function passwordValidator() {
-        var charCounter = 0;
-        var numCounter = 0;
-        var falseNum = 0;
-        var falseChar = 0;
-
-        if (pass.value == '') {
-            text.concat('-Password fieldset is empty');
-            return false;
-        }
-
         for (let i = 0; i <= pass.value.length; i++) {
-            if (Number.isInteger(pass.value.substring((i-1),i))) {
-                numCounter += 1;
-                console.log(numCounter);
-            } else {
-                falseNum += 1;
+            for (let n = 0; n < pass.value.length; n++) {
+                if (pass.value.substring(i,(i+1)) == Num[n]) {
+                    charNum = true;
+                    break;
+                } else {
+                    charNum = false;
+                }
             }
-        }
-        
-        for (let i = 0; i <= pass.value.length; i++) {
-            if (Number.isNaN(pass.value.substring((i-1),i))) {
-                charCounter += 1;
-                console.log(charCounter);
-            } else {
-                falseChar += 1;
+            if (charNum) {
+                break;
             }
         }
 
-        if (falseNum == charCounter) {
-            charLet = true;
-        } else {
-            charLet = false;
+        for (let i = 0; i <= pass.value.length; i++) {
+            for (let n = 0; n < pass.value.length; n++) {
+                if (pass.value.substring(i,(i+1)) == Char[n]) {
+                    charLet = true;
+                    break;
+                } else {
+                    charLet = false;
+                }
+            }
+            if (charLet) {
+                break;
+            }
         }
 
-        if (falseChar == numCounter) {
-            charNum = true;
-        } else {
-            charNum = false;
+        for (let i = 0; i < pass.value.length; i++) {
+            for (let n = 0; n < pass.value.length; n++) {
+                if (pass.value.substring(i,(i+1)) == Rare[n]) {
+                    charWeird = false;
+                    break;
+                } else {
+                    charWeird = true;
+                }
+            }
         }
 
-        if (pass.value.length >= 8 && charNum && charLet) {
+        if (pass.value.length >= 8 ) {
+            passLong = true;
+        } else {
+            passLong = false;
+        }
+
+        if (passLong && charNum && charLet && charWeird) {
             return true;
+        } else if (pass.value == '') {
+            return false;
         } else {
-            text.concat('\n' + '-Invalid password format')
             return false;
         }
     }
-
+    
     //          SUBMIT            //
-    function fillForm() {
-        if (passwordValidator() && emailValidator()) {
-            alert('You have logged in successfully!' + ' \n E-Mail: ' + email.value + ' \n Password: ' + pass.value);
+    function fillForm(event) {
+        if (passwordValidator && emailValidator) {
+            alert('You have logged in successfully!' + ' \n Email: ' + email.value + ' \n Password: ' + pass.value);
         } else {
-            alert('The next fields have not been validated: \n' + text);
+            event.preventDefault(event);
+            alert('The fields displayed in red are incorrect');
         }
     }
 
@@ -124,6 +133,6 @@ window.onload = function () {
     email.addEventListener("focus", focusFieldsetEmail);
     pass.addEventListener("blur", blurFieldsetPass);
     pass.addEventListener("focus", focusFieldsetPass);
-    submit.addEventListener("click", fillForm());
+    submit.addEventListener("click", fillForm(event));
 
 }

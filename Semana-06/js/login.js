@@ -112,7 +112,6 @@ window.onload = function () {
         } else {
             email.classList.add("error");
             iEmail.classList.add("in-error");
-            
         }
     }
     

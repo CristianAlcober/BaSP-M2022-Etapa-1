@@ -84,7 +84,7 @@ window.onload = function () {
     
     //          SUBMIT            //
     function fillForm(event) {
-        if (passwordValidator && emailValidator) {
+        if (passwordValidator() && emailValidator()) {
             alert('You have logged in successfully!' + ' \n Email: ' + email.value + ' \n Password: ' + pass.value);
         } else {
             event.preventDefault(event);
@@ -132,6 +132,6 @@ window.onload = function () {
     email.addEventListener("focus", focusFieldsetEmail);
     pass.addEventListener("blur", blurFieldsetPass);
     pass.addEventListener("focus", focusFieldsetPass);
-    submit.addEventListener("click", fillForm(event));
+    submit.addEventListener("click", fillForm);
 
 }

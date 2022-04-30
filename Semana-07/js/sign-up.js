@@ -2,6 +2,10 @@ window.onload = function () {
     //          VARIABLES            //
     var nameLong = false;
     var charLetters = false;
+    var charNum = false;
+    var charLet = false;
+    var charWeird = false;
+    var passLong = false;
     var text = '';
     var textCorrect = '';
     var adSpace = 0;
@@ -289,7 +293,7 @@ window.onload = function () {
 
     //          SUBMIT            //
     function fillForm(event) {
-        if (passwordValidator() && emailValidator() && nameValidator() && lastNameValidator() && dniValidator() && phoneValidator
+        if (passwordValidator() && emailValidator() && nameValidator() && lastNameValidator() && dniValidator() && phoneValidator()
          && confirmPasswordValidator() && zipCodeValidator() && locationValidator() && adressValidator() && birthDateValidator()) {
             
             alert('You have registered successfully!' + textCorrect);
@@ -346,7 +350,7 @@ window.onload = function () {
     
     //          BLUR            //
     function blurFieldsetEmail() {
-        if (emailValidator) {
+        if (emailValidator()) {
             email.classList.remove("error");
         } else {
             email.classList.add("error");
@@ -354,7 +358,7 @@ window.onload = function () {
     }
 
     function blurFieldsetPass() {
-        if (passwordValidator) {
+        if (passwordValidator()) {
             pass.classList.remove("error");
         } else {
             pass.classList.add("error");
@@ -362,7 +366,7 @@ window.onload = function () {
     }
 
     function blurFieldsetName() {
-        if (nameValidator) {
+        if (nameValidator()) {
             name.classList.remove("error");
         } else {
             name.classList.add("error");
@@ -370,7 +374,7 @@ window.onload = function () {
     }
 
     function blurFieldsetLastName() {
-        if (lastNameValidator) {
+        if (lastNameValidator()) {
             lastName.classList.remove("error");
         } else {
             lastName.classList.add("error");
@@ -378,7 +382,7 @@ window.onload = function () {
     }
 
     function blurFieldsetDni() {
-        if (dniValidator) {
+        if (dniValidator()) {
             dni.classList.remove("error");
         } else {
             dni.classList.add("error");
@@ -386,7 +390,7 @@ window.onload = function () {
     }
 
     function blurFieldsetPhone() {
-        if (phoneValidator) {
+        if (phoneValidator()) {
             phone.classList.remove("error");
         } else {
             phone.classList.add("error");
@@ -394,7 +398,7 @@ window.onload = function () {
     }
 
     function blurFieldsetAdress() {
-        if (adressValidator) {
+        if (adressValidator()) {
             adress.classList.remove("error");
         } else {
             adress.classList.add("error");
@@ -402,7 +406,7 @@ window.onload = function () {
     }
 
     function blurFieldsetLocation() {
-        if (locationValidator) {
+        if (locationValidator()) {
             location.classList.remove("error");
         } else {
             location.classList.add("error");
@@ -410,7 +414,7 @@ window.onload = function () {
     }
 
     function blurFieldsetZip() {
-        if (zipCodeValidator) {
+        if (zipCodeValidator()) {
             zipCode.classList.remove("error");
         } else {
             zipCode.classList.add("error");
@@ -418,7 +422,7 @@ window.onload = function () {
     }
 
     function blurFieldsetCPass() {
-        if (confirmPasswordValidator) {
+        if (confirmPasswordValidator()) {
             passConfirmed.classList.remove("error");
         } else {
             passConfirmed.classList.add("error");
@@ -426,7 +430,7 @@ window.onload = function () {
     }
 
     function blurFieldsetBirth() {
-        if (birthDateValidator) {
+        if (birthDateValidator()) {
             birth.classList.remove("error");
         } else {
             birth.classList.add("error");
@@ -434,7 +438,7 @@ window.onload = function () {
     }
 
     //          EVENT LISTENER SUBMIT            //
-    submit.addEventListener("click", fillForm());
+    submit.addEventListener("click", fillForm);
 
     //          EVENT LISTENERS BLUR            //
     email.addEventListener("blur", blurFieldsetEmail);

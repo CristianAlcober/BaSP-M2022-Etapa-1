@@ -291,6 +291,20 @@ window.onload = function () {
         }
     }
 
+    //          LOCAL STORAGE            //
+    function setLocalStorage() {
+        localStorage.setItem('name', name.value);
+        localStorage.setItem('lastName', lastName.value);
+        localStorage.setItem('dni', dni.value);
+        localStorage.setItem('dob', birth.value);
+        localStorage.setItem('phone', phone.value);
+        localStorage.setItem('adress', adress.value);
+        localStorage.setItem('location', location.value);
+        localStorage.setItem('zipCode', zipCode.value);
+        localStorage.setItem('email', email.value);
+        localStorage.setItem('password', pass.value);
+    }
+    
     //          SUBMIT            //
     function fillForm(event) {
         if (passwordValidator() && emailValidator() && nameValidator() && lastNameValidator() && dniValidator() && phoneValidator()

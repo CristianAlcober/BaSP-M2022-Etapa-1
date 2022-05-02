@@ -101,17 +101,13 @@ window.onload = function () {
         var list = '';
         
         if (passwordValidator() && emailValidator()) {
-            fetch(url, queryParams)
+            fetch(url + queryParams)
                 .then(res => res.json())
                 .then(json => {
-                    for (var key in json) {
-                        list.concat = key.json;
-                    }
+                    alert(json.msg)
                 })
-                alert('You have logged in successfully!' + list)
                 .catch(err => {
-                    alert('Oops, something went wrong with your log in...');
-                    alert(err)
+                    alert('Oops, something went wrong with your log in...' + err);
                 })
                 setLocalStorage();
         } else {

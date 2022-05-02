@@ -4,6 +4,7 @@ window.onload = function () {
     var charLet = false;
     var charWeird = false;
     var passLong = false;
+    var text = 'Error, could not log in because of the following: ';
     var email = document.getElementById('e-mail');
     var pass = document.getElementById('pass');
     let Num = ['1','2','3','4','5','6','7','8','9','0'];
@@ -22,6 +23,7 @@ window.onload = function () {
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
             return true;
         } else {
+            text.concat('\n -Invalid email input');
             return false;
         }
     }
@@ -76,19 +78,44 @@ window.onload = function () {
         if (passLong && charNum && charLet && charWeird) {
             return true;
         } else if (pass.value == '') {
+            text.concat('\n -Password input is empty');
             return false;
         } else {
+            text.concat('\n -Invalid password input');
             return false;
         }
     }
     
+    //          LOCAL STORAGE            //
+    function setLocalStorage() {
+        localStorage.setItem('email', email.value);
+        localStorage.setItem('password', pass.value);
+    }
+
     //          SUBMIT            //
     function fillForm(event) {
+        event.preventDefault(event);
+
+        var url = 'https://basp-m2022-api-rest-server.herokuapp.com/login';
+        var queryParams = '?email=' + email.value + '&password='+ pass.value;
+        var list = '';
+        
         if (passwordValidator() && emailValidator()) {
-            alert('You have logged in successfully!' + ' \n Email: ' + email.value + ' \n Password: ' + pass.value);
+            fetch(url, queryParams)
+                .then(res => res.json())
+                .then(json => {
+                    for (var key in json) {
+                        list.concat = key.json;
+                    }
+                })
+                alert('You have logged in successfully!' + list)
+                .catch(err => {
+                    alert('Oops, something went wrong with your log in...');
+                    alert(err)
+                })
+                setLocalStorage();
         } else {
-            event.preventDefault(event);
-            alert('The fields displayed in red are incorrect');
+            alert(text);
         }
     }
 
@@ -133,5 +160,6 @@ window.onload = function () {
     pass.addEventListener("blur", blurFieldsetPass);
     pass.addEventListener("focus", focusFieldsetPass);
     submit.addEventListener("click", fillForm);
+
 
 }

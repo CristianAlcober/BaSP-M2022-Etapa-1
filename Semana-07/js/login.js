@@ -31,7 +31,7 @@ window.onload = function () {
     //          PASSWORD VALIDATOR            //
     function passwordValidator() {
         for (let i = 0; i <= pass.value.length; i++) {
-            for (let n = 0; n < pass.value.length; n++) {
+            for (let n = 0; n < Num.length; n++) {
                 if (pass.value.substring(i,(i+1)) == Num[n]) {
                     charNum = true;
                     break;
@@ -45,7 +45,7 @@ window.onload = function () {
         }
 
         for (let i = 0; i <= pass.value.length; i++) {
-            for (let n = 0; n < pass.value.length; n++) {
+            for (let n = 0; n < Char.length; n++) {
                 if (pass.value.substring(i,(i+1)) == Char[n]) {
                     charLet = true;
                     break;
@@ -59,7 +59,7 @@ window.onload = function () {
         }
 
         for (let i = 0; i < pass.value.length; i++) {
-            for (let n = 0; n < pass.value.length; n++) {
+            for (let n = 0; n < Rare.length; n++) {
                 if (pass.value.substring(i,(i+1)) == Rare[n]) {
                     charWeird = false;
                     break;
@@ -98,18 +98,20 @@ window.onload = function () {
 
         var url = 'https://basp-m2022-api-rest-server.herokuapp.com/login';
         var queryParams = '?email=' + email.value + '&password='+ pass.value;
-        var list = '';
         
         if (passwordValidator() && emailValidator()) {
             fetch(url + queryParams)
                 .then(res => res.json())
-                .then(json => {
-                    alert(json.msg)
+                .then(data => {
+                    alert(data.msg)
+                    if (data.success) {
+                        setLocalStorage();
+                    }
                 })
                 .catch(err => {
-                    alert('Oops, something went wrong with your log in...' + err);
+                    console.log(err);
+                    alert('Oops, something went wrong with your registration...' + err);
                 })
-                setLocalStorage();
         } else {
             alert(text);
         }

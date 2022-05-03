@@ -1,7 +1,9 @@
 window.onload = function () {
+    
     //          VARIABLES            //
     var nameLong = false;
     var charLetters = false;
+    var charLettersTwo = false;
     var charNum = false;
     var charLet = false;
     var charWeird = false;
@@ -14,6 +16,7 @@ window.onload = function () {
     var adChar = false;
     var locationLong = false;
     var locationLetters = false;
+    let compDate = '2004-05-03';
     let Num = ['1','2','3','4','5','6','7','8','9','0'];
     let Char = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'];
     let Rare = ['!','¡','"','#','$','%','&','/','(',')','=','?','¿',',','.',';',':'];
@@ -22,31 +25,34 @@ window.onload = function () {
     var birth = document.getElementById('birth');
     var dni = document.getElementById('dni');
     var phone = document.getElementById('phone');
-    var adress = document.getElementById('adress');
+    var address = document.getElementById('address');
     var location = document.getElementById('location');
     var zipCode = document.getElementById('zip');
     var email = document.getElementById('e-mail');
     var pass = document.getElementById('pass');
     var passConfirmed = document.getElementById('c-pass');
     var submit = document.getElementById('continue');
-
-    
+    var date = birth.value;
 
     //          NAME VALIDATOR            //
     function nameValidator() {
-        if (name.value.length > 3 ) {
+        if (name.value.length >= 3 ) {
             nameLong = true;
         } else {
             nameLong = false;
             text.concat('\n -Invalid name length');
         }
 
-        for (let i = 0; i < name.length; i++) {
-            if (isNaN(name.value.substring((i-1),i))) {
-                charLetters = true;
-            } else {
-                charLetters = false;
-                text.concat('\n -Invalid name format');
+        for (let i = 0; i <= name.value.length; i++) {
+            for (let n = 0; n < Char.length; n++) {
+                if (name.value.substring(i,(i+1)) == Char[n]) {
+                    charLetters = true;
+                    break;
+                } else {
+                    charLetters = false;
+                }
+            }
+            if (charLetters) {
                 break;
             }
         }
@@ -55,6 +61,7 @@ window.onload = function () {
             textCorrect.concat('\n Name: ' + name.value);
             return true;
         } else {
+            text.concat('\n -Invalid name format');
             return false;
         }
     }
@@ -68,16 +75,21 @@ window.onload = function () {
             text.concat('\n -Invalid last name length');
         }
 
-        for (let i = 0; i < lastName.length; i++) {
-            if (isNaN(lastName.value.substring((i-1),i))) {
-                charLetters = true;
-            } else {
-                charLetters = false;
+        for (let i = 0; i <= lastName.value.length; i++) {
+            for (let n = 0; n < Char.length; n++) {
+                if (lastName.value.substring(i,(i+1)) == Char[n]) {
+                    charLettersTwo = true;
+                    break;
+                } else {
+                    charLettersTwo = false;
+                }
+            }
+            if (charLettersTwo) {
                 break;
             }
         }
 
-        if (nameLong && charLetters) {
+        if (nameLong && charLettersTwo) {
             textCorrect.concat('\n Last Name: ' + lastName.value);
             return true;
         } else {
@@ -88,7 +100,7 @@ window.onload = function () {
 
     //          DATE OF BIRTH VALIDATOR            //
     function birthDateValidator() {
-        if (birth.value.substring(6,9) <= 2004) {
+        if (birth.value < compDate) {
             textCorrect.concat('\n DoB: ' + birth.value);
             return true;
         } else {
@@ -97,9 +109,15 @@ window.onload = function () {
         }
     }
 
+    function birthDateConverter(date) {
+        let dateArray = date.split('-');
+        
+        return dateArray[1] + '/' + dateArray[2] + '/' + dateArray[0];
+    }
+
     //          DNI VALIDATOR            //
     function dniValidator() {       
-        if (dni.value.length() == 7 || dni.value.length() == 8) {
+        if (dni.value.length == 7 || dni.value.length == 8) {
             textCorrect.concat('\n DNI: ' + dni.value);
             return true;
         }  else {
@@ -110,7 +128,7 @@ window.onload = function () {
 
     //          PHONE NUMBER VALIDATOR            //
     function phoneValidator() {
-        if (phone.value.length() == 10) {
+        if (phone.value.length == 10) {
             textCorrect.concat('\n Phone Number: ' + phone.value);
             return true;
         }  else {
@@ -119,50 +137,63 @@ window.onload = function () {
         }
     }
 
-    //          ADRESS VALIDATOR            //
-    function adressValidator() {
-        if (adress.value.length >= 5) {
+    //          ADDRESS VALIDATOR            //
+    function addressValidator() {
+        if (address.value.length >= 5) {
             adLong = true;
         } else {
-            text.concat('\n -Invalid adress length');
+            text.concat('\n -Invalid address length');
             adLong = false;
         }
-
-        for (let i = 0; i < adress.length; i++) {
-            if (isNaN(adress.value.substring((i-1), i))) {
-                adChar = true;
+        
+        for (let i = 0; i <= address.value.length; i++) {
+            for (let n = 0; n < Char.length; n++) {
+                if (address.value.substring(i,(i+1)) == Char[n]) {
+                    adChar = true;
+                    break;
+                } else {
+                    adChar = false;
+                }
+            }
+            if (adChar) {
                 break;
-            } else {
-                adChar = false;
-            } 
+            }
         }
 
         if (adChar == false) {
-            text.concat('\n -Invalid adress format');
+            text.concat('\n -Invalid address format');
         }
 
-        for (let i = 0; i < adress.length; i++) {
-            if (Number.isInteger(adress.value.substring((i-1), i))) {
-                adNum = true;
+        for (let i = 0; i <= address.value.length; i++) {
+            for (let n = 0; n < Num.length; n++) {
+                if (address.value.substring(i,(i+1)) == Num[n]) {
+                    adNum = true;
+                    break;
+                } else {
+                    adNum = false;
+                }
+            }
+            if (adNum) {
                 break;
-            } else {
-                adNum = false;
-            } 
+            }
         }
 
         if (adNum == false) {
-            text.concat('\n -There is not a numeration in the adress');
+            text.concat('\n -There is not a numeration in the address');
         }
 
-        if (adress.value.indexOf(' ') >= 0) {
-            adSpace = true;
-        } else {
-            text.concat('\n -There is not a separation in the adress');
-            adSpace = false;
+        for (let i = 0; i < address.value.length; i++) {
+            if (address.value.substring(i,(i+1)) == " ") {
+                adSpace = true;
+                break
+            } else {
+                text.concat('\n -There is not a separation in the address');
+                adSpace = false;
+            }
         }
         
         if (adLong && adChar && adNum && adSpace) {
-            textCorrect.concat('\n Adress: ' + adress.value);
+            textCorrect.concat('\n address: ' + address.value);
             return true;
         } else {
             return false;
@@ -180,16 +211,17 @@ window.onload = function () {
             text.concat('\n -Invalid location length');
         }
 
-        for (let i = 0; i < location.length; i++) {
-            if (isNaN(location.value.substring((i-1),i))) {
-                counter ++;
-            } 
-
-            if (counter == 3) {
-                locationLetters = true;
-            } else {
-                locationLetters = false;
-                text.concat('\n -Invalid location format');
+        for (let i = 0; i <= location.value.length; i++) {
+            for (let n = 0; n < Char.length; n++) {
+                if (location.value.substring(i,(i+1)) == Char[n]) {
+                    locationLetters = true;
+                    break;
+                } else {
+                    locationLetters = false;
+                }
+            }
+            if (locationLetters) {
+                break;
             }
         }
 
@@ -197,6 +229,7 @@ window.onload = function () {
             textCorrect.concat('\n Location: ' + location.value);
             return true;
         } else {
+            text.concat('\n -Invalid location format');
             return false;
         }
     }
@@ -270,7 +303,7 @@ window.onload = function () {
         }
 
         if (passLong && charNum && charLet && charWeird) {
-            textRight.concat('\n Password: ' + pass.value);
+            textCorrect.concat('\n Password: ' + pass.value);
             return true;
         } else if (pass.value == '') {
             text.concat('\n -Password fieldset is empty');
@@ -298,22 +331,39 @@ window.onload = function () {
         localStorage.setItem('dni', dni.value);
         localStorage.setItem('dob', birth.value);
         localStorage.setItem('phone', phone.value);
-        localStorage.setItem('adress', adress.value);
-        localStorage.setItem('location', location.value);
-        localStorage.setItem('zipCode', zipCode.value);
+        localStorage.setItem('address', address.value);
+        localStorage.setItem('city', location.value);
+        localStorage.setItem('zip', zipCode.value);
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', pass.value);
     }
     
     //          SUBMIT            //
     function fillForm(event) {
+        event.preventDefault(event);
+        
+        var url = 'https://basp-m2022-api-rest-server.herokuapp.com/signup';
+        var queryParams = '?name=' + name.value + '&lastName=' + lastName.value + '&dni=' + dni.value + 
+        '&phone=' + phone.value + '&dob=' + birthDateConverter(date) + '&address=' + address.value + '&city=' + location.value + 
+        '&zip=' + zipCode.value + '&email=' + email.value + '&password='+ pass.value;
+
         if (passwordValidator() && emailValidator() && nameValidator() && lastNameValidator() && dniValidator() && phoneValidator()
-         && confirmPasswordValidator() && zipCodeValidator() && locationValidator() && adressValidator() && birthDateValidator()) {
-            
-            alert('You have registered successfully!' + textCorrect);
+         && confirmPasswordValidator() && zipCodeValidator() && locationValidator() && addressValidator() && birthDateValidator()) {
+            fetch(url + queryParams)
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.msg)
+                    if (data.success) {
+                        setLocalStorage();
+                        console.log(textCorrect);
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                    alert('Oops, something went wrong with your registration...' + err);
+                })
         } else {
-            event.preventDefault();
-            alert('The next fields have not been validated: \n' + text);
+            alert(text);
         }
     }
 
@@ -342,8 +392,8 @@ window.onload = function () {
         phone.classList.remove("error");
     }
 
-    function focusFieldsetAdress() {
-        adress.classList.remove("error");
+    function focusFieldsetAddress() {
+        address.classList.remove("error");
     }
 
     function focusFieldsetLocation() {
@@ -411,11 +461,11 @@ window.onload = function () {
         }
     }
 
-    function blurFieldsetAdress() {
-        if (adressValidator()) {
-            adress.classList.remove("error");
+    function blurFieldsetAddress() {
+        if (addressValidator()) {
+            address.classList.remove("error");
         } else {
-            adress.classList.add("error");
+            address.classList.add("error");
         }
     }
 
@@ -461,7 +511,7 @@ window.onload = function () {
     lastName.addEventListener("blur", blurFieldsetLastName);
     dni.addEventListener("blur", blurFieldsetDni);
     phone.addEventListener("blur", blurFieldsetPhone);
-    adress.addEventListener("blur", blurFieldsetAdress);
+    address.addEventListener("blur", blurFieldsetAddress);
     location.addEventListener("blur", blurFieldsetLocation);
     zipCode.addEventListener("blur", blurFieldsetZip);
     passConfirmed.addEventListener("blur", blurFieldsetCPass);
@@ -474,7 +524,7 @@ window.onload = function () {
     lastName.addEventListener("focus", focusFieldsetLastName);
     dni.addEventListener("focus", focusFieldsetDni);
     phone.addEventListener("focus", focusFieldsetPhone);
-    adress.addEventListener("focus", focusFieldsetAdress);
+    address.addEventListener("focus", focusFieldsetAddress);
     location.addEventListener("focus", focusFieldsetLocation);
     zipCode.addEventListener("focus", focusFieldsetZip);
     passConfirmed.addEventListener("focus", focusFieldsetCPass);

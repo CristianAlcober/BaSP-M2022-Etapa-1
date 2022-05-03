@@ -1,5 +1,4 @@
 window.onload = function () {
-    
     //          VARIABLES            //
     var nameLong = false;
     var charLetters = false;
@@ -32,7 +31,71 @@ window.onload = function () {
     var pass = document.getElementById('pass');
     var passConfirmed = document.getElementById('c-pass');
     var submit = document.getElementById('continue');
-    var date = birth.value;
+
+    //          LOCAL STORAGE CHECK            //
+    function checkLocalStorage() {
+        if(!!localStorage.getItem('name')){
+            name.value = localStorage.getItem('name');
+        } else {
+            name.value = null;
+        }
+
+        if (!!localStorage.getItem('lastName')) {
+            lastName.value = localStorage.getItem('lastName');
+        } else {
+            lastName.value = null;
+        }
+
+        if(!!localStorage.getItem('dob')){
+            birth.value = localStorage.getItem('dob');
+        } else {
+            birth.value = null;
+        }
+
+        if(!!localStorage.getItem('dni')){
+            dni.value = localStorage.getItem('dni');
+        } else {
+            dni.value = null;
+        }
+        
+        if(!!localStorage.getItem('phone')){
+            phone.value = localStorage.getItem('phone');
+        } else {
+            phone.value = null;
+        }
+
+        if(!!localStorage.getItem('address')){
+            address.value = localStorage.getItem('address');
+        } else {
+            address.value = null;
+        }
+
+        if(!!localStorage.getItem('city')){
+            location.value = localStorage.getItem('city');
+        } else {
+            location.value = null;
+        }
+
+        if(!!localStorage.getItem('zip')){
+            zipCode.value = localStorage.getItem('zip');
+        } else {
+            zipCode.value = null;
+        }
+
+        if(!!localStorage.getItem('email')){
+            email.value = localStorage.getItem('email');
+        } else {
+            email.value = null;
+        }
+
+        if(!!localStorage.getItem('password')){
+            pass.value = localStorage.getItem('password');
+            passConfirmed.value = localStorage.getItem('password');
+        } else {
+            pass.value = null;
+            passConfirmed.value = null;
+        }
+    }
 
     //          NAME VALIDATOR            //
     function nameValidator() {
@@ -109,8 +172,8 @@ window.onload = function () {
         }
     }
 
-    function birthDateConverter(date) {
-        let dateArray = date.split('-');
+    function birthDateConverter(birth) {
+        let dateArray = birth.value.split('-');
         
         return dateArray[1] + '/' + dateArray[2] + '/' + dateArray[0];
     }
@@ -338,15 +401,18 @@ window.onload = function () {
         localStorage.setItem('password', pass.value);
     }
     
+    checkLocalStorage();
+
     //          SUBMIT            //
     function fillForm(event) {
         event.preventDefault(event);
-        
+
+        var dob = birthDateConverter(birth);
         var url = 'https://basp-m2022-api-rest-server.herokuapp.com/signup';
         var queryParams = '?name=' + name.value + '&lastName=' + lastName.value + '&dni=' + dni.value + 
-        '&phone=' + phone.value + '&dob=' + birthDateConverter(date) + '&address=' + address.value + '&city=' + location.value + 
+        '&phone=' + phone.value + '&dob=' + dob + '&address=' + address.value + '&city=' + location.value + 
         '&zip=' + zipCode.value + '&email=' + email.value + '&password='+ pass.value;
-
+        
         if (passwordValidator() && emailValidator() && nameValidator() && lastNameValidator() && dniValidator() && phoneValidator()
          && confirmPasswordValidator() && zipCodeValidator() && locationValidator() && addressValidator() && birthDateValidator()) {
             fetch(url + queryParams)

@@ -14,6 +14,21 @@ window.onload = function () {
     var iEmail = document.getElementById('input-e');
     var submit = document.getElementById('continue');
 
+    //          LOCAL STORAGE CHECK            //
+    function checkLocalStorage() {
+        if(!!localStorage.getItem('email')){
+            email.value = localStorage.getItem('email');
+        } else {
+            email.value = null;
+        }
+
+        if(!!localStorage.getItem('password')){
+            pass.value = localStorage.getItem('password');
+        } else {
+            pass.value = null;
+        }
+    }
+
     //          E-MAIL VALIDATOR            //
     function emailValidator() {
         if (email.value == '') {
@@ -91,6 +106,8 @@ window.onload = function () {
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', pass.value);
     }
+
+    checkLocalStorage();
 
     //          SUBMIT            //
     function fillForm(event) {

@@ -127,7 +127,7 @@ window.onload = function () {
                 })
                 .catch(err => {
                     console.log(err);
-                    alert('Oops, something went wrong with your registration...' + err);
+                    alert('Oops, something went wrong with your log in...' + err);
                 })
         } else {
             alert(text);

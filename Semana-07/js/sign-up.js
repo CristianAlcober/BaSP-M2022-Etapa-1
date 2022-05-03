@@ -418,8 +418,8 @@ window.onload = function () {
             fetch(url + queryParams)
                 .then(res => res.json())
                 .then(data => {
-                    alert(data.msg)
                     if (data.success) {
+                        alert(data.msg + textCorrect);
                         setLocalStorage();
                         console.log(textCorrect);
                     }
